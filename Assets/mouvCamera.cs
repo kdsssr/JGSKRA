@@ -3,23 +3,29 @@ using System.Collections;
 
 public class mouvCamera : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public float sl = 0.2f;
+    public float sr = 0.2f;
+    public float su = 0.2f;
+    public float sd = 0.2f;
+
+    private Camera cameraFreeWalk;
+    public float zoomSpeed = 20f;
+    public float minZoomFOV = 10f;
+
+    // Use this for initialization
+    void Start () {
 	
 	}
-    public float sl = 1;
-    public float sr = 1;
-    public float su = 1;
-    public float sd = 1;
+    
     // Update is called once per frame
     void Update () {
         if (Input.GetKey(KeyCode.LeftArrow)&&(transform.position.x > -10))
         {
-            transform.Translate(-sl, 0, 0);
+            transform.Translate((float)-sl, 0, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow) && (transform.position.x < 10))
         {
-            transform.Translate(sr, 0, 0);
+            transform.Translate((float)sr, 0, 0);
         }
         if (Input.GetKey(KeyCode.UpArrow) && (transform.position.y < 7))
         {
@@ -30,5 +36,14 @@ public class mouvCamera : MonoBehaviour {
             transform.Translate(0, -sd, 0);
         }
       
+    }
+
+    public void ZoomIn()
+    {
+        cameraFreeWalk.fieldOfView -= zoomSpeed / 8;
+        if (cameraFreeWalk.fieldOfView < minZoomFOV)
+        {
+            cameraFreeWalk.fieldOfView = minZoomFOV;
+        }
     }
 }
