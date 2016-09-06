@@ -3,20 +3,22 @@ using System.Collections;
 
 public class mouvCamera : MonoBehaviour {
 
-    public float sl = 0.2f;
-    public float sr = 0.2f;
-    public float su = 0.2f;
-    public float sd = 0.2f;
+    
 
     private Camera cameraFreeWalk;
-    public float zoomSpeed = 20f;
+    public float zoomSpeed = 30f;
     public float minZoomFOV = 10f;
 
     // Use this for initialization
     void Start () {
 	
 	}
-    
+
+    public float sl = 2f;
+    public float sr = 0.2f;
+    public float su = 0.2f;
+    public float sd = 0.2f;
+
     // Update is called once per frame
     void Update () {
         if (Input.GetKey(KeyCode.LeftArrow)&&(transform.position.x > -10))
