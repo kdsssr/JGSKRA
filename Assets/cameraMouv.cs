@@ -17,33 +17,39 @@ public class cameraMouv : MonoBehaviour {
     public float sr = 0.2f;
     public float su = 0.2f;
     public float sd = 0.2f;
-    float test = 0f;
+    float zoom = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && (transform.position.x > -10))
+        //Déplacement de la caméra
+        if (Input.GetKey(KeyCode.LeftArrow) && (transform.position.x > -7))
         {
             transform.Translate((float)-sl, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && (transform.position.x < 10))
+        else if (Input.GetKey(KeyCode.RightArrow) && (transform.position.x < 7))
         {
             transform.Translate((float)sr, 0, 0);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && (transform.position.y < 7))
+        else if (Input.GetKey(KeyCode.UpArrow) && (transform.position.y < 5))
         {
             transform.Translate(0, su, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && (transform.position.y > -7))
+        else if (Input.GetKey(KeyCode.DownArrow) && (transform.position.y > -5))
         {
             transform.Translate(0, -sd, 0);
         }
 
-        ZoomAmount += Input.GetAxis("Mouse ScrollWheel");
-        test = ZoomAmount * 3;
-        ZoomAmount = Mathf.Clamp(ZoomAmount, -MaxToClamp, MaxToClamp);
-        var translate = Mathf.Min(Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")), MaxToClamp - Mathf.Abs(ZoomAmount));
-        //gameObject.transform.Translate(0, 0, translate * ROTSpeed * Mathf.Sign(Input.GetAxis("Mouse ScrollWheel")));
-        gameObject.transform.Translate(0, 0, test);
+        //Zoom de la caméra
+        ZoomAmount = Input.GetAxis("Mouse ScrollWheel");
+        zoom = ZoomAmount * 3;
+        if (transform.position.z < 5 && Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            gameObject.transform.Translate(0, 0, zoom);
+        }
+        else if (transform.position.z > -5 && Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            gameObject.transform.Translate(0, 0, zoom);
+        }
     }
 }
