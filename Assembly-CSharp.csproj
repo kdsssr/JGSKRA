@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\affichageRessource.cs" />
      <Compile Include="Assets\cameraMouv.cs" />
      <Compile Include="Assets\menuResidence.cs" />
  <Reference Include="UnityEngine.UI">
