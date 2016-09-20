@@ -15,5 +15,7 @@ public class menuResidence : MonoBehaviour {
     void OnMouseDown()
     {
         Debug.Log("Touché");
+        Debug.Log("Touché bouton");
     }
+    
 }
