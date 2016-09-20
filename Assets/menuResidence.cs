@@ -3,6 +3,7 @@ using System.Collections;
 
 public class menuResidence : MonoBehaviour {
 
+    public GameObject residences;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,10 +13,11 @@ public class menuResidence : MonoBehaviour {
 	void Update () {
 	    
 	}
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         Debug.Log("Touché");
-        Debug.Log("Touché bouton");
+        residences = Instantiate(residences,Vector3.zero, Quaternion.identity)as GameObject;
+        residences.transform.parent = GameObject.Find("Menu").transform;
     }
     
 }
