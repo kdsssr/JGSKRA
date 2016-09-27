@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 6ae15d6dd139d3044b15c58e218932d5
-timeCreated: 1474974697
+timeCreated: 1474978404
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - residences: {fileID: 1000012024162472, guid: d637431b3599240468bebf1be817c7d7,
+  - residences: {fileID: 1000013620143224, guid: d637431b3599240468bebf1be817c7d7,
       type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
